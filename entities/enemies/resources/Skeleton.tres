@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://entities/enemies/resources/EnemyStats.gd" type="Script" id=1]
-[ext_resource path="res://art/sprites/UnitSkeleton.png" type="Texture" id=2]
+[ext_resource path="res://art/sprites/units/UnitSkeleton.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
@@ -9,4 +9,4 @@ enemy_name = "Skeleton"
 enemy_sprite = ExtResource( 2 )
 health = 20
 attack_damage = 10
-rounds_to_next_hit = 2
+max_next_hit = 1

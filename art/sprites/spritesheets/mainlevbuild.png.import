@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/decorative.png-7e343a0bf4df3f3cd8cef6be1d91863a.stex"
+path="res://.import/mainlevbuild.png-915d9bd0268ca03045fb1c7e93e63624.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/decorative.png"
-dest_files=[ "res://.import/decorative.png-7e343a0bf4df3f3cd8cef6be1d91863a.stex" ]
+source_file="res://art/sprites/spritesheets/mainlevbuild.png"
+dest_files=[ "res://.import/mainlevbuild.png-915d9bd0268ca03045fb1c7e93e63624.stex" ]
 
 [params]
 

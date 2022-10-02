@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UnitKnight.png-f39fc91ab2880697e08895cfa0f34759.stex"
+path="res://.import/Agility.png-04d157ebe3d7703c5d181f1d6e90477b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/UnitKnight.png"
-dest_files=[ "res://.import/UnitKnight.png-f39fc91ab2880697e08895cfa0f34759.stex" ]
+source_file="res://art/sprites/icons/Agility.png"
+dest_files=[ "res://.import/Agility.png-04d157ebe3d7703c5d181f1d6e90477b.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mainlevbuild.png-b6e166cc80625d04b6dd8e3dda30d1d1.stex"
+path="res://.import/CoinGrey.png-59802dd3aebaebe886da2d5bb0391b4e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/mainlevbuild.png"
-dest_files=[ "res://.import/mainlevbuild.png-b6e166cc80625d04b6dd8e3dda30d1d1.stex" ]
+source_file="res://art/sprites/icons/CoinGrey.png"
+dest_files=[ "res://.import/CoinGrey.png-59802dd3aebaebe886da2d5bb0391b4e.stex" ]
 
 [params]
 
