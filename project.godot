@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "DragAndShoot",
 "language": "GDScript",
-"path": "res://entities/hero/DragAndShoot.gd"
+"path": "res://entities/hero/scripts/DragAndShoot.gd"
 }, {
 "base": "Resource",
 "class": "EnemyStats",
 "language": "GDScript",
-"path": "res://entities/enemies/resources/EnemyStats.gd"
+"path": "res://entities/enemy/scripts/EnemyStats.gd"
 }, {
 "base": "DragAndShoot",
 "class": "Hero",
 "language": "GDScript",
-"path": "res://entities/hero/Hero.gd"
+"path": "res://entities/hero/scripts/Hero.gd"
 }, {
 "base": "Resource",
 "class": "HeroStatsResource",
 "language": "GDScript",
-"path": "res://entities/hero/resources/HeroStatsResource.gd"
+"path": "res://entities/hero/scripts/HeroStatsResource.gd"
 } ]
 _global_script_class_icons={
 "DragAndShoot": "",
@@ -39,11 +39,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Circle Hero"
-run/main_scene="res://scenes/fightScene/FightScene.tscn"
+run/main_scene="res://entities/main/Main.tscn"
 
 [autoload]
 
-HeroStats="*res://entities/hero/HeroStats.gd"
+GlobalVariables="*res://auto_loads/GlobalVariables.gd"
+EventBus="*res://auto_loads/EventBus.gd"
 
 [display]
 
@@ -55,7 +56,7 @@ window/stretch/aspect="keep"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
-theme/custom="res://ui/theme/CircleHeroTheme.tres"
+theme/custom="res://settings/CircleHeroTheme.tres"
 
 [importer_defaults]
 
@@ -93,6 +94,11 @@ Mouse_Right={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+Hide_Enemy_Stats={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777240,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 
@@ -102,4 +108,4 @@ common/physics_interpolation=true
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://settings/default_env.tres"

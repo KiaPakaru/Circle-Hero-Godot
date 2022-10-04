@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/enemy/scripts/EnemyStats.gd" type="Script" id=1]
+[ext_resource path="res://entities/enemy/assets/sprites/UnitWolf.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+enemy_name = "Wolf"
+enemy_sprite = ExtResource( 2 )
+health = 50
+attack_damage = 20
+max_next_hit = 3
