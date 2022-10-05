@@ -8,5 +8,7 @@ signal move_hero(new_pos)
 # fight management
 signal enemies_loaded
 signal next_round_started
+signal enemy_died
+signal fight_won
 
 # gui

@@ -45,6 +45,7 @@ func on_next_round():
 	# if enemy is dead
 	if health <= 0:
 		queue_free()
+		EventBus.emit_signal("enemy_died")
 		return
 	
 	# if enemy will attack
