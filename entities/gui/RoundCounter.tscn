@@ -35,6 +35,6 @@ margin_left = 18.0
 margin_right = 25.0
 text = "0"
 value = "current_round"
-singal_to_listen = "next_round_started"
+singal_to_listen = "update_round_counter"
 
 [editable path="PanelContainer/VBoxContainer/Stat"]

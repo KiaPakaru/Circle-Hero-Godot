@@ -11,7 +11,7 @@ func _ready():
 	get_parent().connect("enemy_next_hit_changed",self,"update_next_hit")
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Hide_Enemy_Stats"):
+	if Input.is_action_just_pressed("Hide_Stats"):
 		visible = !visible
 
 func load_initial_stats(attack_damage,next_hit,max_health):

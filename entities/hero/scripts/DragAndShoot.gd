@@ -5,10 +5,12 @@ var drag_start_pos: Vector2
 var drag_end_pos: Vector2
 var is_shooting_allowed: bool = true;
 var shot_not_allowed = false
+var bypass_shot_lock = false
 
 onready var trajectory_line = $TrajectoryLine
 
 func _init():
+# warning-ignore:return_value_discarded
 	EventBus.connect("next_round_started",self,"make_ready_for_shot")
 
 
@@ -24,33 +26,38 @@ func _physics_process(_delta):
 
 
 func checkForShotInput():
-	# cancel shot
-	if Input.is_action_just_pressed("Mouse_Right"):
-		shot_not_allowed = true
-		trajectory_line.reset_trajectory()
-	
-	# if drag started before hero was still
-	if shot_not_allowed and Input.is_action_just_released("Mouse_Left"):
-		shot_not_allowed = false
-	
-	# drag process
-	elif is_shooting_allowed:
-		if Input.is_action_just_pressed("Mouse_Left"):
-			drag_start_pos = get_global_mouse_position()
-		if Input.is_action_just_released("Mouse_Left"):
-			drag_end_pos = get_global_mouse_position()
-			executeShot()
+		# cancel shot
+		if Input.is_action_just_pressed("Mouse_Right"):
+			shot_not_allowed = true
 			trajectory_line.reset_trajectory()
-	
-	# if drag started before hero was still
-	elif Input.is_action_just_pressed("Mouse_Left"):
-		shot_not_allowed = true
+		
+		# if drag started before hero was still
+		if shot_not_allowed and Input.is_action_just_released("Mouse_Left"):
+			shot_not_allowed = false
+		
+		# drag process
+		elif is_shooting_allowed:
+			if Input.is_action_just_pressed("Mouse_Left"):
+				drag_start_pos = get_global_mouse_position()
+				
+			if Input.is_action_just_released("Mouse_Left"):
+				drag_end_pos = get_global_mouse_position()
+				if drag_end_pos != drag_start_pos:
+					executeShot()
+				trajectory_line.reset_trajectory()
+		
+		# if drag started before hero was still
+		elif Input.is_action_just_pressed("Mouse_Left"):
+			shot_not_allowed = true
 
 
 func executeShot():
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0
 	var direction = drag_start_pos - drag_end_pos
 	apply_central_impulse(direction.normalized() * 30 * GlobalVariables.hero_stats.strength)
-	is_shooting_allowed = false;
+	if not bypass_shot_lock:
+		is_shooting_allowed = false;
 
 
 func make_ready_for_shot():

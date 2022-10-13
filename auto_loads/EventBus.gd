@@ -3,12 +3,16 @@ extends Node
 
 # hero
 signal hero_stats_changed
-signal move_hero(new_pos)
+signal move_hero(new_pos, lock_shot)
 
 # fight management
-signal enemies_loaded
+signal fight_started
 signal next_round_started
-signal enemy_died
 signal fight_won
+signal enemy_died
+
+#map
+signal load_map(type)
 
 # gui
+signal update_round_counter

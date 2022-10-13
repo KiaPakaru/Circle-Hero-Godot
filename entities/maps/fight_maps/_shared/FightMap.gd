@@ -13,9 +13,10 @@ func _init() -> void:
 func _ready():
 	position_hero()
 	load_enemies()
+	EventBus.emit_signal("fight_started")
 
 func position_hero():
-	EventBus.emit_signal("move_hero", hero_spawn.position)
+	EventBus.emit_signal("move_hero", hero_spawn.position, false)
 
 func load_enemies():
 	var enemiesToLoad = {"Skeleton": 1, "Wolf": 0}
@@ -42,5 +43,7 @@ func check_if_won():
 	
 	if enemies.get_child_count() == 0:
 		EventBus.emit_signal("fight_won")
+		EventBus.emit_signal("load_map", Maps.map_types.choose)
 		GlobalVariables.current_round = 1
+		GlobalVariables.fight_room += 1
 		print("Won")

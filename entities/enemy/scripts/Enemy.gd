@@ -48,8 +48,8 @@ func on_next_round():
 		EventBus.emit_signal("enemy_died")
 		return
 	
-	# if enemy will attack
 	current_next_hit -= 1
+	# if enemy will attack
 	if current_next_hit == 0:
 		GlobalVariables.hero_stats.health -= attack_damage
 		current_next_hit = max_next_hit

@@ -43,6 +43,7 @@ run/main_scene="res://entities/main/Main.tscn"
 
 [autoload]
 
+Maps="*res://auto_loads/Maps.gd"
 GlobalVariables="*res://auto_loads/GlobalVariables.gd"
 EventBus="*res://auto_loads/EventBus.gd"
 
@@ -94,7 +95,7 @@ Mouse_Right={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
-Hide_Enemy_Stats={
+Hide_Stats={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777240,"unicode":0,"echo":false,"script":null)
  ]
@@ -108,4 +109,5 @@ common/physics_interpolation=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.0941176, 0.0784314, 0.145098, 1 )
 environment/default_environment="res://settings/default_env.tres"

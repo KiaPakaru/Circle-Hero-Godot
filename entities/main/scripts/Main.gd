@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func start_run():
 	world.spawn_hero()
-	world.load_map("res://entities/maps/fight_maps/catacombs/Catacombs1.tscn")
+	world.load_map(Maps.map_types.fight)

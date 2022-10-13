@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mainlevbuild.png-622fd56a2fcbcf3ad0a493f018989756.stex"
+path="res://.import/Catacombs_Tileset.png-442ea621f711bd54e9e3d3a5889d6305.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/maps/fight_maps/catacombs/_shared/mainlevbuild.png"
-dest_files=[ "res://.import/mainlevbuild.png-622fd56a2fcbcf3ad0a493f018989756.stex" ]
+source_file="res://entities/maps/_shared/Catacombs_Tileset.png"
+dest_files=[ "res://.import/Catacombs_Tileset.png-442ea621f711bd54e9e3d3a5889d6305.stex" ]
 
 [params]
 

@@ -5,6 +5,7 @@ export var value: String
 export var singal_to_listen: String
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	EventBus.connect(singal_to_listen,self,"change_stat")
 	change_stat()
 

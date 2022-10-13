@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/hero/scripts/Hero.gd" type="Script" id=1]
 [ext_resource path="res://entities/hero/scripts/TrajectoryLine.gd" type="Script" id=2]
+[ext_resource path="res://entities/hero/assets/sprites/UnitKnight.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
@@ -12,6 +13,8 @@ radius = 16.0
 
 [node name="Hero" type="RigidBody2D"]
 physics_interpolation_mode = 2
+light_mask = 2
+z_as_relative = false
 physics_material_override = SubResource( 2 )
 gravity_scale = 0.0
 contacts_reported = 1
@@ -27,8 +30,11 @@ end_cap_mode = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 2
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="on_body_entered"]
