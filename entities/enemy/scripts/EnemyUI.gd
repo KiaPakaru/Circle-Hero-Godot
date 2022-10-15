@@ -9,6 +9,7 @@ func _ready():
 	get_parent().connect("enemy_stats_loaded",self,"load_initial_stats")
 	get_parent().connect("enemy_damage_taken",self,"update_health_bar")
 	get_parent().connect("enemy_next_hit_changed",self,"update_next_hit")
+	get_parent().connect("enemy_damage_changed",self,"update_damage")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Hide_Stats"):
@@ -25,3 +26,6 @@ func update_next_hit(new_next_hit):
 
 func update_health_bar(new_health):
 	health_bar.value = new_health
+
+func update_damage(new_damage):
+	damage_text.text = str(new_damage)

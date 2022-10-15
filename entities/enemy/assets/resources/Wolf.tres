@@ -10,3 +10,4 @@ enemy_sprite = ExtResource( 2 )
 health = 50
 attack_damage = 20
 max_next_hit = 3
+stage = 1

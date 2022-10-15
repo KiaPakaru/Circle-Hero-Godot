@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/artifacts/scripts/ArtifactData.gd" type="Script" id=1]
+[ext_resource path="res://entities/artifacts/sprites/RuneOfLifeSteal.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Rune of life steal"
+description = "+5% life steal"
+sprite = ExtResource( 2 )
+rarity = "uncommon"

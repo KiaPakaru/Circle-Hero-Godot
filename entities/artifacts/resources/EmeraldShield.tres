@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/artifacts/scripts/ArtifactData.gd" type="Script" id=1]
+[ext_resource path="res://entities/artifacts/sprites/EmeraldShield.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Emerald Shield"
+description = "Every incoming damage is reduced by 2"
+sprite = ExtResource( 2 )
+rarity = "common"

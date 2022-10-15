@@ -11,7 +11,10 @@ signal next_round_started
 signal fight_won
 signal enemy_died
 
-#map
+# artifacts
+signal new_artifact_equipped(artifact)
+
+# map
 signal load_map(type)
 
 # gui

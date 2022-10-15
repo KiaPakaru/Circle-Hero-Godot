@@ -16,7 +16,7 @@ enum map_types{
 
 onready var maps = [
 	{"type": map_types.fight, "biome" : biomes.catacombs, "size" : "small", "path" : "res://entities/maps/fight_maps/catacombs/Catacombs1.tscn"},
-	{"type": map_types.fight, "biome" : biomes.catacombs, "size" : "small", "path" : "res://entities/maps/fight_maps/catacombs/Catacombs1.tscn"},
+	{"type": map_types.fight, "biome" : biomes.catacombs, "size" : "small", "path" : "res://entities/maps/fight_maps/catacombs/Catacombs2.tscn"},
 	{"type": map_types.choose, "biome" : biomes.catacombs, "path" : "res://entities/maps/choose_maps/ChooseMap1.tscn"},
 ]
 

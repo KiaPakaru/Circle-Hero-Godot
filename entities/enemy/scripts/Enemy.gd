@@ -4,12 +4,14 @@ extends RigidBody2D
 signal enemy_stats_loaded(attack_damage,max_next_hit,max_health)
 signal enemy_damage_taken(new_health)
 signal enemy_next_hit_changed(new_next_hit)
+signal enemy_damage_changed(new_damage)
 
 var enemy_name = "Skeleton"
-var health
+var health setget damage_taken
 var max_next_hit
 var attack_damage
 var current_next_hit
+var is_poisoned = false
 
 func _init() -> void:
 	EventBus.connect("next_round_started",self,"on_next_round")
@@ -29,19 +31,31 @@ func load_enemy_stats():
 
 func _on_Enemy_body_entered(body):
 	if "Enemy" in body.name:
-		health = clamp(health - GlobalVariables.hero_stats.strength, 0, health)
-		emit_signal("enemy_damage_taken",health)
+		damage_taken(GlobalVariables.hero_stats.strength)
 	
 	elif "Hero" in body.name:
-		health = clamp(health - GlobalVariables.hero_stats.attack_damage, 0, health)
-		emit_signal("enemy_damage_taken",health)
+		damage_taken(GlobalVariables.hero_stats.attack_damage)
+		
+		if(GlobalVariables.is_artfiact_equipped("Poisoned Dagger")):
+			is_poisoned = true
+		
+		if(GlobalVariables.is_artfiact_equipped("Decay")):
+			attack_damage -= 2
+			emit_signal("enemy_damage_changed",attack_damage)
 
 func _on_Enemy_sleeping_state_changed():
 	if sleeping:
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0
 
+func damage_taken(amount):
+	health = clamp(health - amount, 0, health)
+	emit_signal("enemy_damage_taken",health)
+
 func on_next_round():
+	if is_poisoned:
+		damage_taken(10)
+	
 	# if enemy is dead
 	if health <= 0:
 		queue_free()
@@ -51,7 +65,9 @@ func on_next_round():
 	current_next_hit -= 1
 	# if enemy will attack
 	if current_next_hit == 0:
-		GlobalVariables.hero_stats.health -= attack_damage
+		randomize()
+		if randi()%100 + 1 > GlobalVariables.hero_stats.luck:
+			GlobalVariables.hero_stats.health -= attack_damage
 		current_next_hit = max_next_hit
 	
 	emit_signal("enemy_next_hit_changed",current_next_hit)

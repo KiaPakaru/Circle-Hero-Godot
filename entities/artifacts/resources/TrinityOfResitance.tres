@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/artifacts/scripts/ArtifactData.gd" type="Script" id=1]
+[ext_resource path="res://entities/artifacts/sprites/TrinityOfResistance.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Trinity of resistance"
+description = "+5 attack damage / +5% life steal / +5 strength. Enemys can no longer miss attacks"
+sprite = ExtResource( 2 )
+rarity = "epic"

@@ -3,6 +3,7 @@ extends CanvasLayer
 
 onready var hero_stats_bar: Control = $HeroStatsBar
 onready var round_counter: Control = $RoundCounter
+onready var artifact_display: Control = $ArtifactDisplay
 var lock_round_counter = false
 
 func _init() -> void:
@@ -12,6 +13,7 @@ func _init() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Hide_Stats"):
 		hero_stats_bar.visible = !hero_stats_bar.visible
+		artifact_display.visible = !artifact_display.visible
 		if not lock_round_counter:
 			round_counter.visible = !round_counter.visible
 			

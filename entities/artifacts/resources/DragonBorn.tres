@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/artifacts/scripts/ArtifactData.gd" type="Script" id=1]
+[ext_resource path="res://entities/artifacts/sprites/DragonBorn.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Dragon Born"
+description = "Extra force is added to enemy after getting hit by the hero"
+sprite = ExtResource( 2 )
+rarity = "rare"

@@ -37,6 +37,7 @@ func checkForShotInput():
 		
 		# drag process
 		elif is_shooting_allowed:
+			$ReadyIndicator.visible = true
 			if Input.is_action_just_pressed("Mouse_Left"):
 				drag_start_pos = get_global_mouse_position()
 				
@@ -57,7 +58,8 @@ func executeShot():
 	var direction = drag_start_pos - drag_end_pos
 	apply_central_impulse(direction.normalized() * 30 * GlobalVariables.hero_stats.strength)
 	if not bypass_shot_lock:
-		is_shooting_allowed = false;
+		is_shooting_allowed = false
+		$ReadyIndicator.visible = false
 
 
 func make_ready_for_shot():

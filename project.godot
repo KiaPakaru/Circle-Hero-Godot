@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "ArtifactData",
+"language": "GDScript",
+"path": "res://entities/artifacts/scripts/ArtifactData.gd"
+}, {
 "base": "RigidBody2D",
 "class": "DragAndShoot",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://entities/hero/scripts/HeroStatsResource.gd"
 } ]
 _global_script_class_icons={
+"ArtifactData": "",
 "DragAndShoot": "",
 "EnemyStats": "",
 "Hero": "",
@@ -46,6 +52,7 @@ run/main_scene="res://entities/main/Main.tscn"
 Maps="*res://auto_loads/Maps.gd"
 GlobalVariables="*res://auto_loads/GlobalVariables.gd"
 EventBus="*res://auto_loads/EventBus.gd"
+Console="*res://addons/quentincaffeino/console/src/Console.tscn"
 
 [display]
 
@@ -53,6 +60,10 @@ window/size/width=640
 window/size/height=360
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/quentincaffeino/console/plugin.cfg" )
 
 [gui]
 
@@ -98,6 +109,26 @@ Mouse_Right={
 Hide_Stats={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777240,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quentincaffeino_console_toggle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":75,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quentincaffeino_console_autocomplete={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quentincaffeino_console_history_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quentincaffeino_console_history_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/maps/_shared/Catacombs_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/maps/choose_maps/_shared/ChooseMap.gd" type="Script" id=2]
 [ext_resource path="res://entities/maps/DoorEvent.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/artifacts/ArtifactSpawner.tscn" type="PackedScene" id=4]
 
 [node name="ChooseMap1" type="Node2D"]
 show_behind_parent = true
@@ -25,3 +26,9 @@ position = Vector2( 320, 43 )
 
 [node name="DoorEvent3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 496, 43 )
+
+[node name="ArtifactSpawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96, 215 )
+
+[node name="ArtifactSpawner2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 556, 219 )

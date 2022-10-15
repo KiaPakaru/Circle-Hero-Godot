@@ -16,7 +16,6 @@ func _ready():
 func _on_Hero_sleeping_state_changed():
 	if sleeping and not first_sleep_of_fight:
 		EventBus.emit_signal("next_round_started")
-		print("trigger")
 	else:
 		first_sleep_of_fight = false
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/hero/scripts/Hero.gd" type="Script" id=1]
 [ext_resource path="res://entities/hero/scripts/TrajectoryLine.gd" type="Script" id=2]
 [ext_resource path="res://entities/hero/assets/sprites/UnitKnight.png" type="Texture" id=3]
+[ext_resource path="res://entities/hero/assets/sprites/ReadyIndicator.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
@@ -36,6 +37,10 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource( 1 )
+
+[node name="ReadyIndicator" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="on_body_entered"]
 [connection signal="sleeping_state_changed" from="." to="." method="_on_Hero_sleeping_state_changed"]
