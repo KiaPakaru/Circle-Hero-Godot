@@ -1,11 +1,11 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://entities/artifacts/scripts/ArtifactData.gd" type="Script" id=1]
-[ext_resource path="res://entities/artifacts/sprites/DragonBorn.png" type="Texture" id=2]
+[ext_resource path="res://entities/artifacts/sprites/CrownOfFortune.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-name = "Dragon born"
-description = "Extra force is added to enemy after getting hit by the hero"
+name = "Crown of fortune"
+description = "+5 Luck"
 sprite = ExtResource( 2 )
-rarity = "rare"
+rarity = "uncommon"

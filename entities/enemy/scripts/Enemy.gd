@@ -42,6 +42,9 @@ func _on_Enemy_body_entered(body):
 		if(GlobalVariables.is_artfiact_equipped("Decay")):
 			attack_damage -= 2
 			emit_signal("enemy_damage_changed",attack_damage)
+		
+		if(GlobalVariables.is_artfiact_equipped("Dragon born")):
+			set_linear_velocity(get_linear_velocity()*2)
 
 func _on_Enemy_sleeping_state_changed():
 	if sleeping:
@@ -66,8 +69,12 @@ func on_next_round():
 	# if enemy will attack
 	if current_next_hit == 0:
 		randomize()
-		if randi()%100 + 1 > GlobalVariables.hero_stats.luck:
-			GlobalVariables.hero_stats.health -= attack_damage
+		if (randi()%100 + 1 > GlobalVariables.hero_stats.luck
+			or GlobalVariables.is_artfiact_equipped("Trinity of resistance")):
+				if GlobalVariables.is_artfiact_equipped("Emerald shield"):
+					GlobalVariables.hero_stats.health -= (attack_damage - 2)
+				else:
+					GlobalVariables.hero_stats.health -= attack_damage
 		current_next_hit = max_next_hit
 	
 	emit_signal("enemy_next_hit_changed",current_next_hit)

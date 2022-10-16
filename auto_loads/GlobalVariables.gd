@@ -92,8 +92,26 @@ func is_artfiact_equipped(artifact_name) -> bool:
 
 func new_artifact_equipped(artifact):
 	match artifact.name:
-		"Crown of Fortune":
+		"Crown of fortune":
 			hero_stats.luck += 5
 			EventBus.emit_signal("hero_stats_changed")
 		"Forseeing Stone":
 			trajectory_distance += trajectory_distance
+		"Rune of strength":
+			hero_stats.strength += 5
+			EventBus.emit_signal("hero_stats_changed")
+		"Rune of vitality":
+			hero_stats.health += 10
+			hero_max_health += 10
+			EventBus.emit_signal("hero_stats_changed")
+		"Rune of life steal":
+			hero_stats.life_steal += 5
+			EventBus.emit_signal("hero_stats_changed")
+		"Kathanas necklace":
+			hero_stats.attack_damage += 5
+			EventBus.emit_signal("hero_stats_changed")
+		"Trinity of resistance":
+			hero_stats.attack_damage += 5
+			hero_stats.life_steal += 5
+			hero_stats.strength += 5
+			EventBus.emit_signal("hero_stats_changed")
