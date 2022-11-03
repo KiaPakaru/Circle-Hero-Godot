@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Forseeing Stone"
-description = "Doubles prediction path length"
+description = "Doubles prediction path length."
 sprite = ExtResource( 2 )
 rarity = "common"

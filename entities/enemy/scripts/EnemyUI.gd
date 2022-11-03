@@ -1,5 +1,4 @@
 extends Control
-# warning-ignore-all:return_value_discarded
 
 onready var damage_text = $Panel/Stats/AttackDamage
 onready var next_hit_text = $Panel/Stats/RoundsToNextHit

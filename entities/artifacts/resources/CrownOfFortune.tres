@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Crown of fortune"
-description = "+5 Luck"
+description = "[color=green]+5 Luck[/color]"
 sprite = ExtResource( 2 )
 rarity = "uncommon"

@@ -10,7 +10,6 @@ var bypass_shot_lock = false
 onready var trajectory_line = $TrajectoryLine
 
 func _init():
-# warning-ignore:return_value_discarded
 	EventBus.connect("next_round_started",self,"make_ready_for_shot")
 
 
@@ -60,6 +59,7 @@ func executeShot():
 	if not bypass_shot_lock:
 		is_shooting_allowed = false
 		$ReadyIndicator.visible = false
+	AudioManager.play_type(AudioManager.sound_type.dash)
 
 
 func make_ready_for_shot():

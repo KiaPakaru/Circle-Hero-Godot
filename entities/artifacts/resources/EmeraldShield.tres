@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Emerald shield"
-description = "Every incoming damage is reduced by 2"
+description = "Every incoming damage is [color=green]reduced by 2.[/color]"
 sprite = ExtResource( 2 )
 rarity = "common"

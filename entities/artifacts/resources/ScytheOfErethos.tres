@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Scythe of Erethos"
-description = "100% life steal on first round of the fight"
+description = "[color=green]100% life steal[/color] on first round of the fight."
 sprite = ExtResource( 2 )
 rarity = "epic"

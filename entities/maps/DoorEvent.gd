@@ -4,12 +4,12 @@ var map_type
 onready var icon = $DoorIcon
 
 func _ready() -> void:
-	map_type = Maps.map_types.fight
+	map_type = GlobalVariables.map_types.fight
 	
 	match map_type:
-		Maps.map_types.fight:
+		GlobalVariables.map_types.fight:
 			icon.texture = load("res://entities/_shared/ui/icons/Skull.png")
-		Maps.map_types.shop:
+		GlobalVariables.map_types.shop:
 			icon.texture = load("res://entities/_shared/ui/icons/Shop.png")
 
 func _on_DoorEvent_body_entered(body: Node) -> void:

@@ -18,17 +18,20 @@ extra_spacing_top = 1
 font_data = ExtResource( 4 )
 
 [node name="EnemyUI" type="Control"]
+light_mask = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
 
 [node name="Panel" type="PanelContainer" parent="."]
+light_mask = 2
 margin_left = -23.0
 margin_top = 25.0
 margin_right = 23.0
 margin_bottom = 39.0
 
 [node name="Stats" type="HBoxContainer" parent="Panel"]
+light_mask = 2
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 43.0
@@ -36,6 +39,7 @@ margin_bottom = 11.0
 custom_constants/separation = 2
 
 [node name="Icon" type="TextureRect" parent="Panel/Stats"]
+light_mask = 2
 margin_right = 8.0
 margin_bottom = 8.0
 size_flags_horizontal = 3
@@ -44,6 +48,7 @@ texture = ExtResource( 2 )
 stretch_mode = 6
 
 [node name="AttackDamage" type="Label" parent="Panel/Stats"]
+light_mask = 2
 margin_left = 10.0
 margin_right = 19.0
 margin_bottom = 8.0
@@ -55,6 +60,7 @@ align = 1
 valign = 1
 
 [node name="Icon2" type="TextureRect" parent="Panel/Stats"]
+light_mask = 2
 margin_left = 21.0
 margin_right = 29.0
 margin_bottom = 8.0
@@ -64,6 +70,7 @@ texture = ExtResource( 1 )
 stretch_mode = 6
 
 [node name="RoundsToNextHit" type="Label" parent="Panel/Stats"]
+light_mask = 2
 margin_left = 31.0
 margin_right = 40.0
 margin_bottom = 8.0
@@ -73,6 +80,7 @@ custom_fonts/font = SubResource( 2 )
 text = "999"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+light_mask = 2
 margin_left = -21.0
 margin_top = 19.0
 margin_right = 23.0
@@ -82,6 +90,7 @@ value = 100.0
 percent_visible = false
 
 [node name="IconBar" type="TextureRect" parent="."]
+light_mask = 2
 margin_left = -26.0
 margin_top = 17.0
 margin_right = -18.0

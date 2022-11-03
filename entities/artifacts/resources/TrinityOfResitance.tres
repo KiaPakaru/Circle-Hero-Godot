@@ -6,6 +6,9 @@
 [resource]
 script = ExtResource( 1 )
 name = "Trinity of resistance"
-description = "+5 attack damage / +5% life steal / +5 strength. Enemys can no longer miss attacks"
+description = "[color=green]+5 attack damage
++5% life steal
++5 strength.[/color]
+[color=red]Enemys can no longer miss attacks.[/color]"
 sprite = ExtResource( 2 )
 rarity = "epic"

@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Rune of life steal"
-description = "+5% life steal"
+description = "[color=green]+5% life steal[/color]"
 sprite = ExtResource( 2 )
 rarity = "uncommon"

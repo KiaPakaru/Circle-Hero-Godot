@@ -50,3 +50,22 @@ position = Vector2( 185, 197 )
 
 [node name="HeroSpawn" type="Position2D" parent="."]
 position = Vector2( 337, 165 )
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="CoinSpawns" type="Node" parent="."]
+
+[node name="Position2D" type="Position2D" parent="CoinSpawns" groups=["SpawnPoints"]]
+position = Vector2( 523, 55 )
+
+[node name="Position2D2" type="Position2D" parent="CoinSpawns" groups=["SpawnPoints"]]
+position = Vector2( 98, 292 )
+
+[node name="Position2D3" type="Position2D" parent="CoinSpawns" groups=["SpawnPoints"]]
+position = Vector2( 88, 173 )
+
+[node name="Position2D4" type="Position2D" parent="CoinSpawns" groups=["SpawnPoints"]]
+position = Vector2( 492, 285 )
+
+[node name="Position2D5" type="Position2D" parent="CoinSpawns" groups=["SpawnPoints"]]
+position = Vector2( 98, 57 )

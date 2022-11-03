@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func start_run():
 	world.spawn_hero()
-	world.load_map(Maps.map_types.fight)
+	world.load_map(GlobalVariables.map_types.fight)

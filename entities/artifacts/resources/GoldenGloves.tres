@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Golden gloves"
-description = "steals 5 gold after an enemy was hit by the hero"
+description = "[color=green]steals 3 gold[/color] after an enemy was killed."
 sprite = ExtResource( 2 )
 rarity = "rare"

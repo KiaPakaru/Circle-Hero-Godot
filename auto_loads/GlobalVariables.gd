@@ -1,23 +1,47 @@
 extends Node
 
-# hero
+#HERO
 var hero_stats: HeroStatsResource setget set_hero_stats
 var hero_max_health: int
 var trajectory_distance: int = 100
 
-# fight management
+#FIGHT MANAGEMENT
 var current_round: int = 1 setget set_round_counter
 var current_fight: int = 1
 var current_stage: int = 1
 var all_enemies: Array
 
-# artifacts
+#ARTIFACTS
 var all_artifacts: Array
 var equipped_artifacts: Array
 
-#general
-var current_biome = Maps.biomes.catacombs
-var current_size = Maps.map_sizes.small
+#CURRENCY
+var coins: int = 0
+
+#GENERAL
+var current_biome = biomes.catacombs
+var current_size = map_sizes.small
+
+#MAPS
+enum biomes{
+	catacombs
+}
+enum map_sizes{
+	small,
+	medium,
+	large
+}
+enum map_types{
+	fight,
+	choose,
+	shop
+}
+
+onready var maps = [
+	{"type": map_types.fight, "biome" : biomes.catacombs, "size" : "small", "path" : "res://entities/maps/fight_maps/catacombs/Catacombs1.tscn"},
+	{"type": map_types.fight, "biome" : biomes.catacombs, "size" : "small", "path" : "res://entities/maps/fight_maps/catacombs/Catacombs2.tscn"},
+	{"type": map_types.choose, "biome" : biomes.catacombs, "path" : "res://entities/maps/choose_maps/ChooseMap1.tscn"},
+]
 
 # testing. will be removed later
 func _init() -> void:
@@ -28,10 +52,9 @@ func _init() -> void:
 	hero_max_health = hero_stats.health
 
 func _ready() -> void:
-# warning-ignore:return_value_discarded
 	EventBus.connect("next_round_started",self,"increment_round")
 	EventBus.connect("new_artifact_equipped",self,"new_artifact_equipped")
-	current_biome = Maps.biomes.catacombs
+	current_biome = GlobalVariables.biomes.catacombs
 
 func set_hero_stats(value):
 	hero_stats = value
@@ -59,7 +82,6 @@ func load_resources(folder_path, array_to_fill) -> void:
 		file_name = dir.get_next()
 
 func get_enemys_of_current_stage() -> Array:
-# warning-ignore:unassigned_variable
 	var enemies_of_stage: Array
 	for enemy in all_enemies:
 		if enemy.stage == current_stage:
@@ -67,17 +89,39 @@ func get_enemys_of_current_stage() -> Array:
 	return enemies_of_stage
 
 func get_artifact() -> ArtifactData:
+	randomize()
 	#get rarity
-	var rarity = "common"
+	var rarity
+	var value = rand_range(0,100)
+	
+	# 1%
+	if value >= 99:
+		rarity = "mythical"
+	# 5%
+	elif value >= 94:
+		rarity = "epic"
+	# 10%
+	elif value >= 84:
+		rarity = "rare"
+	# 30%
+	elif value >= 54:
+		rarity = "uncommon"
+	# 54%
+	elif value < 54 :
+		rarity = "common"
+	
+	print("chance was " + str(value) + ": " + rarity)
 	
 	#pick random artifact of this rarity
 	var selected_artifact
-	randomize()
 	all_artifacts.shuffle()
 	for a in all_artifacts:
 		if a.rarity == rarity and not is_artfiact_equipped(a.name):
 			selected_artifact = a
 			break
+	if(selected_artifact == null):
+		printerr("No artifact of rarity " + rarity + " available")
+		selected_artifact = all_artifacts[0]
 	return selected_artifact
 
 func add_artifact(artifact):
@@ -115,3 +159,28 @@ func new_artifact_equipped(artifact):
 			hero_stats.life_steal += 5
 			hero_stats.strength += 5
 			EventBus.emit_signal("hero_stats_changed")
+
+func get_map(type) -> String:
+	# randomize maps
+	randomize()
+	maps.shuffle()
+	
+	# get machting map
+	var map
+	
+	for i in maps.size():
+		var current_map = maps[i]
+		match type:
+			map_types.fight:
+				if (current_map.biome == GlobalVariables.current_biome
+				and current_map.type == map_types.fight
+				and current_map.size == "small"):
+					map = current_map
+					break
+			map_types.choose:
+					if (current_map.biome == GlobalVariables.current_biome
+					and current_map.type == map_types.choose):
+						map = current_map
+						break
+	
+	return map.path

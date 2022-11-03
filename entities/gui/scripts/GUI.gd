@@ -1,5 +1,4 @@
 extends CanvasLayer
-# warning-ignore-all:return_value_discarded
 
 onready var hero_stats_bar: Control = $HeroStatsBar
 onready var round_counter: Control = $RoundCounter

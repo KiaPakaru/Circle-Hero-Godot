@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Kathanas necklace"
-description = "+5 attack damage"
+description = "[color=green]+5 attack damage[/color]"
 sprite = ExtResource( 2 )
 rarity = "uncommon"

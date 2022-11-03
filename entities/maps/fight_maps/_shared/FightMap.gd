@@ -1,19 +1,22 @@
 extends Node2D
 
 const enemy_scene = preload("res://entities/enemy/Enemy.tscn")
+const coin_scene = preload("res://entities/coins/Coin.tscn")
 
 onready var hero_spawn = $HeroSpawn
 onready var enemy_spawns = $EnemySpawns.get_children()
+onready var coin_spawns = $CoinSpawns.get_children()
+onready var coins = $Coins
 onready var enemies = $Enemies
 
 
 func _init() -> void:
-# warning-ignore:return_value_discarded
 	EventBus.connect("enemy_died",self,"check_if_won")
 	
 func _ready():
 	position_hero()
 	load_enemies()
+	spawn_coins()
 	EventBus.emit_signal("fight_started")
 
 func position_hero():
@@ -45,12 +48,20 @@ func load_enemies():
 		
 		enemies.add_child(enemy)
 
+func spawn_coins():
+	for s in coin_spawns:
+		randomize()
+		if randi()%100 + 1 > 50:
+			var coin = coin_scene.instance()
+			coin.position = s.position
+			coins.add_child(coin)
+
 func check_if_won():
 	#wait one second
 	yield(get_tree().create_timer(1), "timeout")
 	
 	if enemies.get_child_count() == 0:
 		EventBus.emit_signal("fight_won")
-		EventBus.emit_signal("load_map", Maps.map_types.choose)
+		EventBus.emit_signal("load_map", GlobalVariables.map_types.choose)
 		GlobalVariables.current_round = 1
 		GlobalVariables.current_fight += 1

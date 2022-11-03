@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Poisoned Dagger"
-description = "After an enemy was hit by the hero, it will take 10 damage after every round"
+description = "After an enemy was hit by the hero, he will take [color=green]10 damage after every round.[/color]"
 sprite = ExtResource( 2 )
 rarity = "rare"

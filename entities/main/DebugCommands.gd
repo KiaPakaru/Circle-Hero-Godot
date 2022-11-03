@@ -33,6 +33,6 @@ func get_all_artifacts():
 
 func win_fight():
 	EventBus.emit_signal("fight_won")
-	EventBus.emit_signal("load_map", Maps.map_types.choose)
+	EventBus.emit_signal("load_map", GlobalVariables.map_types.choose)
 	GlobalVariables.current_round = 1
 	GlobalVariables.current_fight += 1

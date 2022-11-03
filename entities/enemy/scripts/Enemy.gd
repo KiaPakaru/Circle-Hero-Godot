@@ -1,5 +1,4 @@
 extends RigidBody2D
-# warning-ignore-all:return_value_discarded
 
 signal enemy_stats_loaded(attack_damage,max_next_hit,max_health)
 signal enemy_damage_taken(new_health)
@@ -19,6 +18,9 @@ func _init() -> void:
 
 func _ready():
 	load_enemy_stats()
+
+func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	rotation_degrees = 0
 
 func load_enemy_stats():
 	var stats = load("res://entities/enemy/assets/resources/" + enemy_name + ".tres")
@@ -61,6 +63,8 @@ func on_next_round():
 	
 	# if enemy is dead
 	if health <= 0:
+		if GlobalVariables.is_artfiact_equipped("Golden gloves"):
+			GlobalVariables.coins += 3
 		queue_free()
 		EventBus.emit_signal("enemy_died")
 		return

@@ -1,5 +1,4 @@
 extends Node
-# warning-ignore-all:unused_signal
 
 # hero
 signal hero_stats_changed
@@ -14,8 +13,14 @@ signal enemy_died
 # artifacts
 signal new_artifact_equipped(artifact)
 
+#currency
+signal coins_updated
+
 # map
 signal load_map(type)
 
 # gui
 signal update_round_counter
+signal show_tooltip(position, offset, text)
+signal hide_tooltip
+signal shake_camera(shake_strength,shake_speed,decay_rate)

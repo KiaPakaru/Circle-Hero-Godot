@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/enemy/EnemyUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/enemy/scripts/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://entities/_shared/light.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
@@ -11,10 +12,11 @@ bounce = 0.75
 radius = 16.0
 
 [sub_resource type="OccluderPolygon2D" id=3]
-polygon = PoolVector2Array( 15, -2, 0, -16, -16, 0, 0, 16, 16, 0 )
+polygon = PoolVector2Array( 16, -3, 15, -6, 12, -10, 9, -13, 5, -15, 0, -16, -4, -15, -8, -14, -11, -12, -14, -8, -15, -4, -16, 0, -15, 4, -14, 8, -11, 11, -8, 14, -4, 15, 0, 16, 4, 15, 8, 14, 11, 11, 14, 8, 15, 4, 16, 0 )
 
 [node name="Enemy" type="RigidBody2D"]
 physics_interpolation_mode = 2
+light_mask = 2
 physics_material_override = SubResource( 2 )
 gravity_scale = 0.0
 contacts_reported = 1
@@ -23,14 +25,51 @@ linear_damp = 0.75
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 shape = SubResource( 1 )
 
 [node name="EnemyUI" parent="." instance=ExtResource( 1 )]
+light_mask = 0
+
+[node name="Panel" parent="EnemyUI" index="0"]
+light_mask = 0
+
+[node name="Stats" parent="EnemyUI/Panel" index="0"]
+light_mask = 0
+
+[node name="Icon" parent="EnemyUI/Panel/Stats" index="0"]
+light_mask = 0
+
+[node name="AttackDamage" parent="EnemyUI/Panel/Stats" index="1"]
+light_mask = 0
+
+[node name="Icon2" parent="EnemyUI/Panel/Stats" index="2"]
+light_mask = 0
+
+[node name="RoundsToNextHit" parent="EnemyUI/Panel/Stats" index="3"]
+light_mask = 0
+
+[node name="ProgressBar" parent="EnemyUI" index="1"]
+light_mask = 0
+
+[node name="IconBar" parent="EnemyUI" index="2"]
+light_mask = 0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 2
 occluder = SubResource( 3 )
+light_mask = 2
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.7
+color = Color( 0.737255, 0.388235, 0.156863, 1 )
+energy = 0.7
+shadow_enabled = true
+shadow_item_cull_mask = 5
 
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
 

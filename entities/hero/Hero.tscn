@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/hero/scripts/Hero.gd" type="Script" id=1]
 [ext_resource path="res://entities/hero/scripts/TrajectoryLine.gd" type="Script" id=2]
 [ext_resource path="res://entities/hero/assets/sprites/UnitKnight.png" type="Texture" id=3]
 [ext_resource path="res://entities/hero/assets/sprites/ReadyIndicator.png" type="Texture" id=4]
+[ext_resource path="res://entities/_shared/light.png" type="Texture" id=5]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
@@ -11,6 +12,9 @@ bounce = 0.75
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 16, -3, 15, -6, 12, -10, 9, -13, 5, -15, 0, -16, -4, -15, -8, -14, -11, -12, -14, -8, -15, -4, -16, 0, -15, 4, -14, 8, -11, 11, -8, 14, -4, 15, 0, 16, 4, 15, 8, 14, 11, 11, 14, 8, 15, 4, 16, 0 )
 
 [node name="Hero" type="RigidBody2D"]
 physics_interpolation_mode = 2
@@ -25,6 +29,7 @@ angular_damp = 0.75
 script = ExtResource( 1 )
 
 [node name="TrajectoryLine" type="Line2D" parent="."]
+light_mask = 2
 points = PoolVector2Array( 0, 0, 0, 0 )
 default_color = Color( 1, 1, 1, 0.203922 )
 end_cap_mode = 2
@@ -41,6 +46,18 @@ shape = SubResource( 1 )
 [node name="ReadyIndicator" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 4 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 4
+occluder = SubResource( 3 )
+light_mask = 4
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 5 )
+texture_scale = 0.7
+energy = 0.8
+shadow_enabled = true
+shadow_item_cull_mask = 3
 
 [connection signal="body_entered" from="." to="." method="on_body_entered"]
 [connection signal="sleeping_state_changed" from="." to="." method="_on_Hero_sleeping_state_changed"]

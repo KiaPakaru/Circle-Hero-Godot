@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Rune of vitality"
-description = "+10 health"
+description = "[color=green]+10 health[/color]"
 sprite = ExtResource( 2 )
 rarity = "common"

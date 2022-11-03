@@ -3,11 +3,10 @@ extends Node
 onready var hero = preload("res://entities/hero/Hero.tscn")
 
 func _init() -> void:
-# warning-ignore:return_value_discarded
 	EventBus.connect("load_map",self,"load_map")
 
 func load_map(type) -> void:
-	var map_path = Maps.get_map(type)
+	var map_path = GlobalVariables.get_map(type)
 	
 	$MapTransition/AnimationPlayer.play("MapTransition")
 	

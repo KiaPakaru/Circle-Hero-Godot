@@ -49,10 +49,16 @@ run/main_scene="res://entities/main/Main.tscn"
 
 [autoload]
 
-Maps="*res://auto_loads/Maps.gd"
 GlobalVariables="*res://auto_loads/GlobalVariables.gd"
 EventBus="*res://auto_loads/EventBus.gd"
 Console="*res://addons/quentincaffeino/console/src/Console.tscn"
+AudioManager="*res://auto_loads/AudioManager.gd"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
